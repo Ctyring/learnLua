@@ -6,7 +6,7 @@
 -- 八种基本类型：nil boolean number string function userdata thread table
 -- nil类型只有一个值nil
 -- boolean类型只有两个值false和true
--- number类型表示双精度类型的实浮点数
+-- number类型表示整数或浮点数
 -- string类型表示不可变的字节数组
 -- function类型表示由C或Lua编写的函数
 -- userdata类型表示任意存储在变量中的C数据结构
