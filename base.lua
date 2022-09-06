@@ -2,8 +2,7 @@
 -- 单行注释
 --[[
     多行注释
-]]
--- 关键字约定：_连接大写字母的名字被保留用于Lua内部使用 比如_VERSION
+]] -- 关键字约定：_连接大写字母的名字被保留用于Lua内部使用 比如_VERSION
 -- 八种基本类型：nil boolean number string function userdata thread table
 -- nil类型只有一个值nil
 -- boolean类型只有两个值false和true
@@ -18,84 +17,14 @@
 -- lua中的变量默认为nil
 print("类型测试:")
 print(type("Hello World")) -- string
-print(type(10.4*3)) -- number
+print(type(10.4 * 3)) -- number
 print(type(print)) -- function
 print(type(type)) -- function
 print(type(true)) -- boolean
 print(type(nil)) -- nil
 print(type(type(X))) -- string
--- nil测试
-print("nil测试:")
-print(type(a)) -- nil
--- nil测试
-print("nil测试:")
-print(nil == nil) -- true
-print(nil == false) -- false
-print(nil == 0) -- false
-print(nil == "") -- false
-print(nil == {}) -- false
-print(nil == function() end) -- false
-print(type(a) == nil) -- false 这里之所以为false是因为type(a)返回的是string类型
-print(type(type(a)) == string) -- true
-print(type(a) == type(nil)) -- true
-print(type(a) == "nil") -- true
 -- boolean
 -- 只有false和nil为假，其他都为真
--- number
--- number类型有两种内部表现形式：整数和浮点数
--- lua中的整数没有长度限制，但是浮点数有长度限制
--- lua中的整数和浮点数都可以使用科学计数法表示
--- lua中的整数和浮点数都可以使用16进制表示
--- 程序员多数情况下可以选择忽略整数与浮点数之间的差异或者假设完全控制每个数字的内部表现方式。
-print("number测试:")
-print(0.1e1) -- 1
-print(0.1e-1) -- 0.01
-print(0xff) -- 255
--- string
--- lua中的字符串可以用一对单引号或者双引号来表示
--- lua中的字符串可以用两个方括号来表示，两个方括号之间的字符串可以包含任意的字符，包括换行符
-print("string测试:")
-s = [[
-    hello, world
-    cty is comming
-]]
-print(s)
--- 字符串连接
-print("字符串连接：")
-print("Hello" .. "World") -- HelloWorld
--- 字符串长度
-print("字符串长度：")
-print(#"Hello World") -- 11
--- 字符串截取
-print("字符串截取：")
-print(string.sub("hello, world", 1, 5)) -- hello
--- 字符串查找
-print("字符串查找：")
-print(string.find("hello, world", "world")) -- 8 12
-print(type(string.find("hello, world", "world"))) -- table
--- 字符串替换
-print("字符串替换：")
-print(string.gsub("hello, world", "world", "cty")) -- hello, cty 1
-print(type(string.gsub("hello, world", "world", "cty"))) -- table
--- 字符串格式化
-print("字符串格式化：")
-print(string.format("the value is:%d", 4)) -- the value is:4
--- 字符串分割
-print("字符串分割：")
-for word in string.gmatch("hello lua this is cty", "%a+") do
-    print(word)
-end
--- 字符串转换
-print("字符串转换：")
--- 其他转字符串
-print(tostring(10)) -- 10
-print(tostring(10.4*3)) -- 31.2
-print(tostring(print)) -- function: 0x7f8c0c0a0e60
--- 字符串转数字
-print(tonumber("10")) -- 10
-print(tonumber("10.4")) -- 10.4
-print(tonumber("10.4*3")) -- nil
-print(tonumber("hello")) -- nil
 
 -- table
 -- lua中的table是一种关联数组，数组的索引可以是数字或者字符串
@@ -145,7 +74,9 @@ for k, v in pairs(ctytable) do
 end
 -- table的反转
 print("table的反转:")
-table.sort(ctytable, function(a, b) return a > b end)
+table.sort(ctytable, function(a, b)
+    return a > b
+end)
 for k, v in pairs(ctytable) do
     print(k, v)
 end

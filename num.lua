@@ -1,4 +1,8 @@
 -- 数值
+print("number测试:")
+print(0.1e1) -- 1
+print(0.1e-1) -- 0.01
+print(0xff) -- 255
 -- 在lua中大多数情况下不需要区分整数和浮点数
 print(1 == 1.0) -- true
 print(0.2e3 == 200) -- true
